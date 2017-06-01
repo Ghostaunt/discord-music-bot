@@ -410,7 +410,7 @@ function play_next_song() {
 		bot.user.setGame(title);
 	}
 
-	var audio_stream = ytdl("https://www.youtube.com/watch?v=" + video_id);
+	var audio_stream = ytdl("https://www.youtube.com/watch?v=" + video_id, { filter : 'audioonly' });
 	voice_handler = voice_connection.playStream(audio_stream);
 
 	voice_handler.once("end", reason => {
