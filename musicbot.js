@@ -385,6 +385,9 @@ function add_to_queue(video, message, mute = false) {
 			queue.push({title: info["title"], id: video_id, user: message.author.username});
 			if (!mute) {
 				message.reply('"' + info["title"] + '" has been added to the queue.');
+				
+				if(!is_bot_playing)
+					play_next_song();
 			}
 			if(!stopped && !is_bot_playing() && queue.length === 1) {
 				play_next_song();
