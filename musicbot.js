@@ -417,7 +417,7 @@ function play_next_song() {
 		voice_handler = null;
 		bot.user.setGame();
 		if(!stopped && !is_queue_empty()) {
-			play_next_song();
+			setTimeout(function(){ play_next_song()}, 1000);
 		}
 	});
 
